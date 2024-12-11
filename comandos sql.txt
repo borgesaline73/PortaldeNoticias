@@ -1,0 +1,20 @@
+CREATE EXTENSION pgcrypto;
+create table usuario (
+	id serial primary key,
+	email text,
+	senha varchar 
+)
+
+INSERT INTO usuario (email, senha) VALUES ('@admin', crypt('admin', gen_salt('bf')));
+
+select * from usuario
+
+create table noticia(
+	id serial primary key,
+	manchete text,
+	textoNoticia text,
+	dataPubli date,
+	imagem varchar
+)
+select * from noticia
+
